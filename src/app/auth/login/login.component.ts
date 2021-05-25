@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit {
         if (params.registered !== undefined && params.registered === 'true') {
           this.router.navigateByUrl('/signup');
 
-          this.toastr.success('Username exits already');
-          this.registerSuccessMessage = ' please check  the Username';
+          this.toastr.success('signedup successfully');
+          this.registerSuccessMessage = ' Thank you !!! for signin';
         }
       });
   }

@@ -9,14 +9,14 @@
             <input type="text" [formControlName]="'title'" class="form-control" style="margin-top: 5px"
               placeholder="Title">
               <span *ngIf="!createSubredditForm.get('title').valid && createSubredditForm.get('title').touched">
-                Please provide a title
+                Please provide a vaild subreddit name
              </span> 
             </div> 
             <div>
             <textarea type="text" [formControlName]="'description'" style="width: 100%; margin-top: 5px"
               placeholder="Description"></textarea>
-              <span *ngIf="(!createSubredditForm.get('description').valid && createSubredditForm.get('description').touched  )|| click.btnCreateSubreddit">
-                Please provide a description
+              <span *ngIf="!createSubredditForm.get('description').valid && createSubredditForm.get('description').touched">
+                Please provide a vaild description
              </span> 
               
             </div>

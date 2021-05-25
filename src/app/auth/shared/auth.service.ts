@@ -83,4 +83,10 @@ export class AuthService {
   isLoggedIn(): boolean {
     return this.getJwtToken() != null;
   }
+  getVerifyEmail(email: string) {
+    return this.httpClient.get('http://localhost:8080/api/auth/VerifyEmail/' + email);
+  }
+  getVerifyUser(username: string) {
+    return this.httpClient.get('http://localhost:8080/api/auth/VerifyUser/' + username);
+  }
 }

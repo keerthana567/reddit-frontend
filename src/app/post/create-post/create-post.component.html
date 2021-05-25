@@ -7,9 +7,15 @@
             <div class="create-post-heading">Create Post</div>
             <hr />
             <input type="text" [formControlName]="'postName'" class="form-control" style="margin-top: 5px"
-              placeholder="Title" required="please fill out the name">
+              placeholder="Title" required>
+              <span *ngIf="!createPostForm.get('postName').valid && createPostForm.get('postName').touched">
+                Please provide a valid postname
+            </span>  
   
-            <input type="text" class="form-control" [formControlName]="'url'" style="margin-top: 5px" placeholder="URL">
+            <input type="text" class="form-control" [formControlName]="'url'" style="margin-top: 5px" placeholder="URL" required>
+            <span *ngIf="!createPostForm.get('url').valid && createPostForm.get('url').touched">
+              Please provide a valid url
+          </span> 
   
             <select class="form-control" style="margin-top: 10px" [formControlName]="'subredditName'">
               <option value="" selected disabled>Select Subreddit</option>
