@@ -26,14 +26,14 @@
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">User Name</label>
                             <div class="col-md-6">
-                                <input type="text" [formControlName]="'username'"class="form-control" required autofocus/>
+                                <input type="text" [formControlName]="'username'"class="form-control" (focusout) = "VerifyUser($event)" required autofocus/>
                                 <span *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched  && !UserExists1">
                                     Please provide a valid username
                                 </span> 
                                 <span *ngIf=" UserExists1"  >
                                     Username already exists
                                 </span>  
-            <pre>{{signupForm.get('username').valid}}</pre>                        
+            <!-- <pre>{{signupForm.get('username').valid}}</pre>                         -->
         
                             </div>
                         </div>

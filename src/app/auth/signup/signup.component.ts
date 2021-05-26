@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.signupForm = new FormGroup({
-      username: new FormControl('', Validators.compose([Validators.maxLength(30), Validators.required,this.VerifyUser.bind(this)])),
+      username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email,this.Verifyemail.bind(this)]),
       password: new FormControl('', Validators.required),
     });
@@ -64,21 +64,22 @@ export class SignupComponent implements OnInit {
   }
   VerifyUser(username)
   {
-    // console.log("functioncall");
+     console.log("functioncall");
+     console.log(username);
     
- this.authService.getVerifyUser(username.value)
+ this.authService.getVerifyUser(username.target.value)
     .subscribe(data => {
       if(data==true)
       {
-        console.log("gfhddddddddddd");
+        // console.log("gfhddddddddddd");
           this.UserExists1=false;
      }
        else
        {
-         console.log("ffffffffffff");
+        //  console.log("ffffffffffff");
         console.log(data);
         this.UserExists1=true;
-        this.signupForm.get('username').setErrors({notValid1:true});
+        this.signupForm.get('username').setErrors({notValid:true});
         this.toastr.error('username already exists');
       }
     } 
